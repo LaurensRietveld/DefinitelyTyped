@@ -63,10 +63,10 @@ export class DefaultGraph extends Term implements RDF.DefaultGraph {
 
 export class Quad implements RDF.Quad {
     constructor(subject: RDF.Term, predicate: RDF.Term, object: RDF.Term, graph?: RDF.Term);
-    subject: RDF.Term;
-    predicate: RDF.Term;
-    object: RDF.Term;
-    graph: RDF.Term;
+    subject: Term;
+    predicate: Term;
+    object: Term;
+    graph: Term;
     equals(other: RDF.Quad): boolean;
     toJSON(): string;
 }
@@ -74,13 +74,13 @@ export class Quad implements RDF.Quad {
 export class Triple extends Quad implements RDF.Triple {}
 
 export namespace DataFactory {
-    function namedNode(value: string): RDF.NamedNode;
-    function blankNode(value?: string): RDF.BlankNode;
-    function literal(value: string | number, languageOrDatatype?: string | RDF.NamedNode): RDF.Literal;
-    function variable(value: string): RDF.Variable;
-    function defaultGraph(): RDF.DefaultGraph;
-    function triple(subject: RDF.Term, predicate: RDF.Term, object: RDF.Term): RDF.Quad;
-    function quad(subject: RDF.Term, predicate: RDF.Term, object: RDF.Term, graph?: RDF.Term): RDF.Quad;
+    function namedNode(value: string): NamedNode;
+    function blankNode(value?: string): BlankNode;
+    function literal(value: string | number, languageOrDatatype?: string | RDF.NamedNode): Literal;
+    function variable(value: string): Variable;
+    function defaultGraph(): DefaultGraph;
+    function triple(subject: Term, predicate: Term, object: Term): Quad;
+    function quad(subject: Term, predicate: Term, object: Term, graph?: Term): Quad;
 }
 
 export type ErrorCallback = (err: Error, result: any) => void;
